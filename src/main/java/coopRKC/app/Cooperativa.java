@@ -36,4 +36,11 @@ public class Cooperativa {
                 // Recorre todas las cuentas y verifica si alguna tiene el mismo número de cuenta
                 .anyMatch(cuenta -> numeroCuenta.equals(cuenta.getNumeroCuenta()));
     }
+
+    // Valida que la cédula del socio sea única en toda la cooperativa.
+    public boolean validarCedulaUnica(String cedula) {
+        if (cedula == null) return false;
+        return socios.stream()
+                .anyMatch(socio -> cedula.equals(socio.getCedula()));
+    }
 }
